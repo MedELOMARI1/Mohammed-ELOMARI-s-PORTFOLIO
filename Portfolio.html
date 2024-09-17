@@ -7,37 +7,7 @@
     <title>Mon Portfolio</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-         // Collecte des données du formulaire
-           $name = htmlspecialchars($_POST['name']);
-          $email = htmlspecialchars($_POST['email']);
-          $message = htmlspecialchars($_POST['message']);
-
-        // Paramètres de l'e-mail
-          $to = 'elomarimohammed111@gmail.com'; // Remplace par ton adresse e-mail
-          $subject = 'Message de votre portfolio';
-
-        // Corps du message
-           $email_message = "Nom: $name\n";
-           $email_message .= "Email: $email\n";
-         $email_message .= "Message:\n$message\n";
-
-        // En-têtes de l'e-mail
-           $headers = "From: $email\r\n";
-        $headers .= "Reply-To: $email\r\n";
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-    // Envoi de l'e-mail
-    if (mail($to, $subject, $email_message, $headers)) {
-        echo "Merci pour votre message. Nous vous répondrons bientôt.";
-    } else {
-        echo "Une erreur est survenue. Veuillez réessayer.";
-    }
-} else {
-    echo "Accès non autorisé.";
-}
-  >
+   
 
     <style>
         body {
@@ -322,14 +292,16 @@
     </ul>
 </section>
 
+
 <section class="section-container contact">
-    <h2>Contactez-moi</h2>
+ <h2>Contactez-moi</h2>
     <form class="contact-form" action="send_email.php" method="post">
+        
         <input type="text" name="name" placeholder="Votre nom" required>
         <input type="email" name="email" placeholder="Votre email" required>
         <textarea name="message" placeholder="Votre message" required></textarea>
         <button type="submit">Envoyer</button>
-    </form>
+   </form>
 </section>
 
 
